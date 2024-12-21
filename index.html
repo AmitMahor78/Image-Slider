@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(26, 14, 25);
+            height: 500px;
+            width: 500px;
+        }
+        button{
+            background-color: #5ee100; /* Green */
+            border: none;
+            color: white;
+            position: relative;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        
+        }
+        .B{
+            position: relative;
+            left: 460px;
+            top: 60px;
+
+        }
+        .A{
+            position: relative;
+            top: 420px;
+            left: 280px;
+        }
+        #slider{
+            position: relative;
+            top: 30px;
+            border: 5px solid white;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: aliceblue; position: relative ; left: 250px; top: 70px;"> Images Slider </h1>
+    <div>
+    <button class="A" onclick="prev()">Prev</button>
+    <img id="slider" 
+    src="N.webp" height="300px" width="400px">
+    <button class="B" onclick="next()">Next</button>
+</div>
+<script>
+    var images = [
+    'N.webp',
+    'N2.jpeg',
+    'N14.jpg',
+    'N13.jpg',
+    'N12.jpg',
+    'N10.jpg',
+    'N11.jpg',
+    'N9.jpg',
+    'N8.jpg',
+    'N3.jpg',
+    'N4.webp',
+    'N5.jpg',
+    'N6.jpg',
+    'N7.jpg',
+
+];
+var num = 0;
+function next() {
+    var slider = document.getElementById('slider');
+    num++;
+    if(num >= images.length) {
+        num = 0;
+    }
+    slider.src = images[num];
+}
+function prev() {
+    var slider = document.getElementById('slider');
+    num--;
+    if(num < 0) {
+        num = images.length-1;
+    }
+    slider.src = images[num];
+}
+document.addEventListener("copy",(event)=>{
+        const selectedData = window.getSelection().toString();
+        event.clipboardData.setData(
+            "text/plain",
+          f()
+        );
+        event.preventDefault();
+    });
+    function f(){
+        let gamenum = "A$T$M116";
+let usernum = prompt("Enter the password ");
+
+while (usernum != gamenum) {
+       usernum = prompt("your password is wrong  ");
+} 
+const selectedData = window.getSelection().toString();
+        event.clipboardData.setData(
+            "text/plain",
+
+        );
+    }
+    
+  
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function(e) {
+      f();
+      e.preventDefault();
+    }, false);
+  } else {
+    document.attachEvent('oncontextmenu', function() {
+      f();
+      window.event.returnValue = false;
+    });
+  }
+</script>
+</body>
+</html>
